@@ -200,19 +200,21 @@ body {
 
 /* Divisor de páginas (NUEVO)*/
 
-
 .divisor-oro-pag {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0px;
+
+    margin: -30px 0;
 }
 
 .divisor-oro-pag span {
-    width: 200px;
+
+    width: 65%;
     height: 120px;
 
     background-image: url('../imagenes/Img-6-separacion.png');
+
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
