@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Datos de Fatima</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+ <style>
+
+:root{
+  --marfil: #cba97c;
+  --bordo: #3b1d29;
+  --dorado: #e6d3a3;
+  --tinta: #2b2b2b;
+  --dorado-suave: #e6d3a3;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  /* 🎨 FONDO NUEVO usando tus colores */
+  background:
+  radial-gradient(circle at top,
+    #e6d3a3 0%,
+    #d8b98f 30%,
+    #cba97c 60%,
+    #b88f63 100%
+  );
+
+  font-family:'Poppins', sans-serif;
+  overflow-y:auto;
+  overflow-x:hidden;
+  color:var(--tinta);
+  padding:40px 20px;
+  position:relative;
+}
+
+/* ✨ brillo suave */
+.background-glow{
+  position:fixed;
+  width:600px;
+  height:600px;
+  background:rgba(230,211,163,0.18);
+  border-radius:50%;
+  filter:blur(80px);
+  animation:pulse 5s infinite alternate;
+  z-index:0;
+}
+
+@keyframes pulse{
+  from{
+    transform:scale(1);
+  }
+  to{
+    transform:scale(1.15);
+  }
+}
+
+/* 🪄 tarjeta */
+.card{
+  position:relative;
+  width:90%;
+  max-width:430px;
+
+  padding:40px;
+
+  margin:40px 0;
+
+  border:2px solid var(--dorado);
+  border-radius:28px;
+
+  background:rgba(245,223,194,0.92);
+
+  backdrop-filter:blur(12px);
+
+  box-shadow:
+  0 0 30px rgba(0,0,0,0.18),
+  0 0 18px rgba(230,211,163,0.25);
+
+  text-align:center;
+
+  z-index:2;
+
+  animation:fadeUp 1.2s ease;
+
+  overflow:hidden;
+}
+
+.card::before{
+  content:"";
+  position:absolute;
+  inset:10px;
+  border:1px solid rgba(230,211,163,0.7);
+  border-radius:22px;
+  pointer-events:none;
+}
+
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(30px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* ✨ adornos */
+.victorian-frame{
+  position:relative;
+  font-size:34px;
+  color:var(--bordo);
+  margin-bottom:22px;
+  letter-spacing:8px;
+}
+
+.victorian-frame::before,
+.victorian-frame::after{
+  content:"❧ ❦ ❧";
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:20px;
+  color:rgba(59,29,41,0.5);
+  letter-spacing:4px;
+  white-space:nowrap;
+}
+
+.victorian-frame::before{
+  left:-120px;
+}
+
+.victorian-frame::after{
+  right:-120px;
+}
+
+/* 📝 títulos */
+h1{
+  font-family:'Cinzel', serif;
+  font-size:34px;
+  margin-bottom:10px;
+  color:var(--bordo);
+  letter-spacing:2px;
+  line-height:1.2;
+}
+
+.subtitle{
+  color:#5a3b45;
+  margin-bottom:30px;
+  font-size:15px;
+  line-height:1.7;
+}
+
+/* 📦 cajas */
+.info-box{
+  background:#eee5cd;
+  border:1px solid var(--dorado);
+  border-radius:18px;
+  padding:18px;
+  margin-bottom:18px;
+  transition:0.3s;
+  position:relative;
+
+  box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+.info-box::before{
+  content:"✦";
+  position:absolute;
+  left:14px;
+  top:50%;
+  transform:translateY(-50%);
+  color:rgba(59,29,41,0.4);
+  font-size:12px;
+}
+
+.info-box:hover{
+  transform:translateY(-3px);
+  border-color:var(--bordo);
+  box-shadow:0 0 12px rgba(59,29,41,0.18);
+}
+
+.label{
+  font-size:12px;
+  letter-spacing:2px;
+  color:var(--bordo);
+  margin-bottom:6px;
+  text-transform:uppercase;
+}
+
+.value{
+  font-size:16px;
+  color:var(--tinta);
+  word-break:break-word;
+  line-height:1.5;
+}
+
+/* 🔘 botón */
+button{
+  width:100%;
+  margin-top:12px;
+  padding:16px 24px;
+  border:none;
+  border-radius:14px;
+  cursor:pointer;
+
+  background:var(--bordo);
+
+  color:white;
+  font-weight:600;
+  font-size:15px;
+  transition:0.3s;
+  font-family:'Poppins', sans-serif;
+}
+
+button:hover{
+  background:var(--dorado);
+  color:var(--tinta);
+  transform:scale(1.03);
+  box-shadow:0 0 18px rgba(59,29,41,0.25);
+}
+
+/* 💌 footer */
+.footer{
+  margin-top:24px;
+  font-size:13px;
+  color:#6d4b56;
+  opacity:0.8;
+  letter-spacing:1px;
+}
+
+/* ✨ partículas */
+.sparkles{
+  position:fixed;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  overflow:hidden;
+  pointer-events:none;
+  z-index:1;
+}
+
+.sparkles span{
+  position:absolute;
+  width:4px;
+  height:4px;
+  background:var(--bordo);
+  border-radius:50%;
+  opacity:0.5;
+  animation:float 8s linear infinite;
+}
+
+@keyframes float{
+  from{
+    transform:translateY(100vh) scale(0);
+    opacity:0;
+  }
+  20%{
+    opacity:1;
+  }
+  to{
+    transform:translateY(-100vh) scale(1.5);
+    opacity:0;
+  }
+}
+
+/* 📱 responsive */
+@media(max-width:600px){
+
+  body{
+    padding:20px 12px;
+    align-items:flex-start;
+  }
+
+  .card{
+    width:100%;
+    padding:28px 20px;
+    margin:20px 0;
+    border-radius:24px;
+  }
+
+  h1{
+    font-size:28px;
+  }
+
+  .subtitle{
+    font-size:14px;
+    margin-bottom:24px;
+  }
+
+  .info-box{
+    padding:16px;
+  }
+
+  .label{
+    font-size:11px;
+  }
+
+  .value{
+    font-size:14px;
+  }
+
+  button{
+    padding:15px;
+    font-size:14px;
+  }
+
+  .victorian-frame{
+    font-size:28px;
+  }
+
+  .victorian-frame::before,
+  .victorian-frame::after{
+    display:none;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="background-glow"></div>
+
+<div class="sparkles">
+  <span style="left:10%; animation-delay:0s;"></span>
+  <span style="left:25%; animation-delay:2s;"></span>
+  <span style="left:40%; animation-delay:4s;"></span>
+  <span style="left:60%; animation-delay:1s;"></span>
+  <span style="left:75%; animation-delay:5s;"></span>
+  <span style="left:90%; animation-delay:3s;"></span>
+</div>
+
+<div class="card">
+
+  <div class="victorian-frame">
+    ⚜
+  </div>
+
+  <h1>Feliz Cumpleaños</h1>
+
+  <p class="subtitle">
+    Gracias por compartir este día tan especial.
+  </p>
+
+  <div class="info-box">
+    <div class="label">Titular</div>
+    <div class="value">
+      Fatima Valentina Turkalj
+    </div>
+  </div>
+
+  <div class="info-box">
+    <div class="label">Alias</div>
+    <div class="value" id="alias">
+      fatimaturkalj
+    </div>
+  </div>
+
+  <div class="info-box">
+    <div class="label">CVU</div>
+    <div class="value" id="cbu">
+      0000003100010472056456
+    </div>
+  </div>
+
+  <button onclick="copiarDatos()">
+    Copiar datos
+  </button>
+
+  <div class="footer">
+    Con cariño 
+  </div>
+
+</div>
+
+<script>
+
+function copiarDatos(){
+
+  const alias = document.getElementById("alias").innerText;
+  const cbu = document.getElementById("cbu").innerText;
+
+  const texto =
+`Alias: ${alias}
+CBU: ${cbu}`;
+
+  navigator.clipboard.writeText(texto);
+
+  alert("Datos copiados ✨");
+
+}
+
+</script>
+
+</body>
+</html>

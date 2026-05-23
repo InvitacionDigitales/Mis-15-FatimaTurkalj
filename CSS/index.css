@@ -1,0 +1,503 @@
+/* Toda la página */
+
+:root {
+    --marfil: #cba97c;
+    --bordo: #3b1d29;  /*4b1e2f*/
+    --dorado: #e6d3a3;
+    --tinta: #2b2b2b;
+    --dorado-suave: #e6d3a3;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html { 
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--marfil);
+    color: var(--tinta);
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+}
+
+
+/* Botones */
+
+
+.btn {
+    background: var(--bordo);
+    color: white;
+    padding: 15px 35px;
+    text-decoration: none;
+    margin: 10px;
+    display: inline-block;
+    letter-spacing: 2px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: var(--dorado);
+    color: var(--tinta);
+}
+
+.btn.outline {
+    background: transparent;
+    border: 1px solid var(--bordo);
+    color: var(--bordo);
+}
+
+.btn.outline:hover {
+    background: var(--bordo);
+    color: white;
+}
+
+
+/* Animaciones */
+
+
+.fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.9s ease;
+}
+
+.fade-up.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section:nth-of-type(1) { transition-delay: 0.2s; }
+.section:nth-of-type(2) { transition-delay: 0.4s; }
+.section:nth-of-type(3) { transition-delay: 0.6s; }
+
+
+/* 🎭 CORTINAS */
+.cortina {
+    position: fixed;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    z-index: 9999;
+
+    transition: transform 2.5s ease-in-out;
+
+    background:
+    repeating-linear-gradient(
+        90deg,
+        var(--dorado-suave) 0px,
+        var(--dorado) 20px,
+        var(--marfil) 40px
+    );
+
+    box-shadow:
+        inset -10px 0 30px rgba(0,0,0,0.5),
+        inset 0 0 40px rgba(255,255,255,0.05);
+}
+
+/* izquierda */
+.cortina.izquierda {
+    left: 0;
+}
+
+/* derecha */
+.cortina.derecha {
+    right: 0;
+}
+
+/* abrir */
+.cortina.izquierda.abrir {
+    transform: translateX(-100%);
+}
+
+.cortina.derecha.abrir {
+    transform: translateX(100%);
+}
+
+
+/* INICIO */
+
+#inicio{
+    background-image: url('../imagenes/Img-1-inicio.jpeg'); /* Cambie la imagen */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Caja de contenido */
+.overlay-victoriano {
+    width: 90%;
+    max-width: 500px; /* Ancho máximo del contenedor de 600px a 500px*/
+}
+
+/* Marco tarjeta */
+.marco-ornamental {
+    background: color-mix(in srgb, var(--marfil) 90%, transparent); /* Lo hice un poco más transparente*/
+    padding: 50px 30px;
+    position: relative;
+    border: 2px solid var(--dorado); /* Más gruesos 1px a 2px */
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+}
+.marco-ornamental::after {
+    content: "";
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    border: 2px solid var(--dorado); /* Más gruesos 1px a 2px */
+}
+
+/* Contenido de la tarjeta */
+.subtitulo-elegante {
+    letter-spacing: 6px;
+    font-size: 80%; /* Tamaño de 0.08 rem a 80% (Mismo tamaño) */
+    color: var(--bordo);
+}
+.titulo-tarjeta {
+    font-family: 'Great Vibes', cursive;
+    font-size: 423%; /* Tamaño de 4,23 rem a 240% (Mismo tamaño) */
+    color: var(--bordo);
+    margin: 5px 0; /* Reducí el espacio sino muy ceparado de lo demás*/
+}
+
+/* Divisor de trajeta */
+.divisor-oro span {
+    width: 80px;
+    height: 1px;
+    background: var(--dorado);
+    position: relative;
+    display: inline-block;
+}
+.divisor-oro span::after {
+    content: "❖";
+    position: absolute;
+    top: -11px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--dorado);
+}
+
+/* Datos de la tarjeta */
+.fecha-portada {
+    font-family: 'Cinzel', serif;
+    color: var(--bordo);
+    font-size: 140%; /* Tamaño de 1.4 rem a 140% (Mismo tamaño) */  
+}
+
+.horario-portada {
+    letter-spacing: 2px;
+    font-size: 90%; /* Tamaño de 0.9 rem a 90% (Mismo tamaño) */
+}
+
+
+/* Divisor de páginas (NUEVO)*/
+
+
+.divisor-oro-pag {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+}
+
+.divisor-oro-pag span {
+    width: 300px;
+    height: 220px;
+
+    background-image: url('../imagenes/Img-6-separacion.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    display: block;
+}
+
+
+/*  Cuenta regresiva */
+
+
+.cuentaregresiva{
+    padding: 80px 20px;
+ 
+}
+.titulo-cuentaR {
+    color: var(--bordo);
+    letter-spacing: 3px;
+    font-family: 'Pinyon Script', cursive;
+    font-size: 60px;
+    font-weight: normal;
+}
+.contenedor-regresiva {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    
+}
+
+.contenido-cuenta {
+    letter-spacing: 1px;
+    font-size: 120%; /* Tamaño de 0.9 rem a 90% (Mismo tamaño) */
+    padding: 0px 10px 30px 10px ;
+    font-family: 'Cormorant Garamond', serif;
+    
+}
+
+.box {
+    background: #eee5cd;
+    border: 1px solid var(--dorado);
+    padding: 15px;
+    min-width: 70px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+}
+
+.box span {
+    font-size: 200%; /* Tamaño de 2 rem a 200% (Mismo tamaño) */
+    color: var(--bordo);
+}
+
+.box p {
+    font-size: 80%; /* Tamaño de 0.7 rem a 70% (Mismo tamaño) */   
+    letter-spacing: 2px;
+}
+
+#Teesperamos{
+    margin-bottom: 30px;
+    color: var(--bordo);
+    font-family: 'Great Vibes', cursive;
+    font-size: 280%;
+}
+
+
+/* Celebración */
+
+
+.titulo-celebracion {
+    color: var(--bordo);
+    font-family: 'Pinyon Script', cursive;
+    font-size: 60px;
+    font-weight: normal;
+}
+
+.tarjeta-celebracion {
+    background: #eee5cd;
+    border: 1px solid var(--dorado);
+    padding: 25px;
+    margin: 20px auto;
+    max-width: 450px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.contenido-celebracion {
+    letter-spacing: 1px;
+    font-size: 120%; /* Tamaño de 0.9 rem a 90% (Mismo tamaño) */
+     padding: 0px 10px 0px 10px ;
+          font-family: 'Cormorant Garamond', serif;
+
+}
+
+.btn.ubi{
+    margin-bottom: 60px;
+}
+
+
+/* Confirmnacion */
+
+
+.titulo-confirmacion {
+    color: var(--bordo);
+    font-family: 'Pinyon Script', cursive;
+    font-size: 60px;
+    font-weight: normal;
+}
+
+.tarjeta-confirmacion {
+    background: #eee5cd;
+    border: 1px solid var(--dorado);
+    padding: 25px;
+    margin: 20px auto;
+    max-width: 450px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.contenido-confirmacion {
+    letter-spacing: 1px;
+    font-size: 120%; /* Tamaño de 0.9 rem a 90% (Mismo tamaño) */
+    padding: 0px 10px 30px 10px ;
+     font-family: 'Cormorant Garamond', serif;
+
+}
+
+.btn.ubi{
+    margin-bottom: 60px;
+}
+
+
+/* Regalos */
+
+
+.titulo-regalos {
+    color: var(--bordo);
+    font-family: 'Pinyon Script', cursive;
+    font-size: 60px;
+    font-weight: normal;
+}
+
+.tarjeta-regalos {
+    background: #eee5cd;
+    border: 1px solid var(--dorado);
+    padding: 25px;
+    margin: 20px auto;
+    max-width: 450px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.contenido-regalos {
+    letter-spacing: 1px;
+    font-size: 120%; /* Tamaño de 0.9 rem a 90% (Mismo tamaño) */
+     padding: 0px 10px 30px 10px ;
+     font-family: 'Cormorant Garamond', serif;
+
+}
+
+.btn.ubi{
+    margin-bottom: 60px;
+}
+
+
+/* Dresscode */
+
+
+.titulo-dress {
+    color: var(--bordo);
+    font-family: 'Pinyon Script', cursive;
+    font-size: 60px;
+    font-weight: normal;
+}
+
+.tarjeta-dress {
+    background: #eee5cd;
+    border: 1px solid var(--dorado);
+    padding: 25px;
+    margin: 20px auto;
+    max-width: 450px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.contenido-dress {
+    letter-spacing: 1px;
+    font-size: 190%; /* Tamaño de 0.9 rem a 90% (Mismo tamaño) */
+     padding: 0px 10px 30px 10px ;
+     font-family: 'Cormorant Garamond', serif;
+}
+
+#Fotodress {
+    width: 60%;
+    max-width: 200px;
+    margin: 20px auto;
+}
+
+
+/* 🦋 MARIPOSAS */
+
+.butterflies {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.butterfly {
+    position: absolute;
+
+    width: 55px;
+    height: 55px;
+
+    background-image: url('../imagenes/Img-4-mariposa.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    opacity: 0;
+
+    animation: fly linear forwards;
+}
+
+@keyframes fly {
+    0% {
+        transform: translateY(100vh) translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: translateY(50vh) translateX(80px) rotate(10deg);
+    }
+
+    100% {
+        transform: translateY(-120vh) translateX(-80px) rotate(-10deg);
+        opacity: 0;
+    }
+}
+
+
+/* ✨ SECCIONES EN CUADRO */
+
+section {
+    display: flex;
+    justify-content: center;
+    padding: 70px 20px;
+}
+
+section > div {
+    background: #f5dfc2; /* ebc89b */
+    backdrop-filter: blur(8px);
+
+    width: 100%;
+    max-width: 750px;
+
+    padding: 50px 35px;
+
+    border: 2px solid var(--dorado);
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,0.12),
+        inset 0 0 20px rgba(255,255,255,0.25);
+
+    position: relative;
+}
+
+/* borde interno elegante */
+section > div::before {
+    content: "";
+    position: absolute;
+
+    top: 12px;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+
+    border: 1px solid rgba(230,211,163,0.7);
+
+    pointer-events: none;
+}
+
+/* espacio entre tarjetas */
+section {
+    margin-bottom: 30px;
+}
