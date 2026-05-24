@@ -10,7 +10,7 @@
 
 * {
     margin: 0;
-    padding: 0;
+    padding: 0px;
     box-sizing: border-box;
 }
 
@@ -224,6 +224,7 @@ body {
     font-size: 20px;
 }
 
+
 /*  Cuenta regresiva */
 
 
@@ -408,55 +409,51 @@ body {
     margin: 20px auto;
 }
 
-.signature-section{
-    position: relative;
-    width: 100%;
-    min-height: 70vh;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* Footer */
 
-    text-align: center;
 
-    background:
-    linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.7));
+.footer {
+    width: 40%;
+}
+
+.footer-fondo{
+    background-image: url('../imagenes/Img-1-inicio.jpeg');
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
 
-    overflow: hidden;
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.contenido{
-    z-index: 2;
-    padding: 20px;
-    max-width: 700px;
-}
-
-.detalle{
-    font-family: 'Cormorant Garamond', serif;
-    letter-spacing: 5px;
-    font-size: 14px;
-    color: var(--tinta);
-    margin-bottom: 20px;
-}
-
-h2{
+.titulo-footer {
+    color: var(--bordo);
     font-family: 'Pinyon Script', cursive;
-    font-size: 80px;
+    font-size: 60px;
     font-weight: normal;
-    color: var(--tinta);
 }
 
-.texto{
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 24px;
-    line-height: 1.7;
-    color: var(--tinta);
-    margin-top: 20px;
+.tarjeta-footer {
+    background: #eee5cd;
+    border: 1px solid var(--dorado);
+    margin: 5px auto;
+    max-width: 350px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-a{
+.contenido-footer {
+    letter-spacing: 1px;
+    font-size: 90%; /* Tamaño de 0.9 rem a 90% (Mismo tamaño) */
+     padding: 0px 10px 30px 10px ;
+     font-family: 'Cormorant Garamond', serif;
+}
+
+a {
     display: inline-block;
     margin-top: 35px;
 
@@ -478,91 +475,7 @@ a:hover{
     background: rgba(255,255,255,.1);
     transform: scale(1.05);
 }
-/* FOOTER */
 
-.signature-section{
-    position: relative;
-
-    width: 100%;
-    min-height: 70vh;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    text-align: center;
-
-    padding: 80px 20px;
-
-    background:
-    linear-gradient(
-        rgba(20,10,15,.82),
-        rgba(20,10,15,.88)
-    ),
-    url('../imagenes/Img-1-inicio.jpeg');
-
-    background-size: cover;
-    background-position: center;
-
-    overflow: hidden;
-}
-
-.contenido{
-    z-index: 2;
-    max-width: 700px;
-}
-
-.detalle{
-    font-family: 'Cormorant Garamond', serif;
-    letter-spacing: 5px;
-    font-size: 14px;
-    color: var(--tinta);
-;
-
-    margin-bottom: 20px;
-}
-
-.firma-titulo{
-    font-family: 'Pinyon Script', cursive;
-    font-size: 80px;
-    font-weight: normal;
-
-    color: var(--tinta);
-}
-
-.texto{
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 24px;
-    line-height: 1.7;
-
-    color: var(--tinta);
-
-    margin-top: 20px;
-}
-
-.mail-footer{
-    display: inline-block;
-
-    margin-top: 35px;
-    padding: 14px 30px;
-
-    text-decoration: none;
-
-    font-family: 'Cormorant Garamond', serif;
-    letter-spacing: 3px;
-
-    color: var(--tinta);
-
-    border: 1px solid rgba(255,255,255,.3);
-    background: #eee5cd;
-    transition: .4s;
-}
-
-.mail-footer:hover{
-    background: #eee5cd;
-
-    transform: scale(1.05);
-}
 
 /* 🦋 MARIPOSAS */
 
