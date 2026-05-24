@@ -567,5 +567,5 @@ section > div::before {
 
 /* espacio entre tarjetas */
 section {
-    margin-bottom: 30px;
+    margin-bottom: 0px;
 }
