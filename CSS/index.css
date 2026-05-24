@@ -413,9 +413,6 @@ body {
 /* Footer */
 
 
-.footer {
-    width: 80%;
-}
 
 .footer-fondo{
     background-image: url('../imagenes/Img-1-inicio.jpeg');
@@ -434,21 +431,21 @@ body {
 .titulo-footer {
     color: var(--bordo);
     font-family: 'Pinyon Script', cursive;
-    font-size: 60px;
+    font-size: 90px;
     font-weight: normal;
 }
 
 .tarjeta-footer {
     background: #eee5cd;
     border: 1px solid var(--dorado);
-    margin: 5px auto;
+    margin: 10px auto;
     max-width: 350px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 .contenido-footer {
     letter-spacing: 1px;
-    font-size: 90%; /* Tamaño de 0.9 rem a 90% (Mismo tamaño) */
+    font-size: 120%; /* Tamaño de 0.9 rem a 90% (Mismo tamaño) */
      padding: 0px 10px 30px 10px ;
      font-family: 'Cormorant Garamond', serif;
 }
