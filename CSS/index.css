@@ -160,6 +160,7 @@ body {
     letter-spacing: 6px;
     font-size: 80%; /* Tamaño de 0.08 rem a 80% (Mismo tamaño) */
     color: var(--bordo);
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 .titulo-tarjeta {
     font-family: 'Great Vibes', cursive;
@@ -412,66 +413,72 @@ body {
 
 /* Footer */
 
-.footer-section{
-    background-image: url('../imagenes/Img-1-inicio.jpeg'); /* Cambie la imagen */
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
+.footer-section {
+    position: relative;
+
+    width: 100%;
+    min-height: 220px;
+
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+
+    padding: 40px 20px;
+
+   background: var(--bordo);
+
+    overflow: hidden;
 }
 
-.contenido-footer{
+.footer-overlay {
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(2px);
+}
+
+.contenido-footer {
+    position: relative;
     z-index: 2;
-    padding: 20px;
-    max-width: 700px;
+
+    text-align: center;
+    max-width: 500px;
+
+    color: white;
 }
 
-.detalle{
-    font-family: 'Cormorant Garamond', serif;
-    letter-spacing: 5px;
-    font-size: 14px;
-    color: var(--tinta);
+.firma-titulo {
+    font-size: 2rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+
     margin-bottom: 10px;
 }
 
-h2{
-    font-family: 'Pinyon Script', cursive;
-    font-size: 80px;
-    font-weight: normal;
-    color: var(--tinta);
+.texto {
+    font-size: 0.95rem;
+    line-height: 1.6;
+
+    opacity: 0.9;
+    margin-bottom: 18px;
 }
 
-.texto{
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 24px;
-    line-height: 1.7;
-    color: var(--tinta);
-    margin-top: 20px;
-}
-
-a{
-    display: inline-block;
-    margin-top: 35px;
-
+.mail-footer {
+    color: white;
     text-decoration: none;
 
-    font-family: 'Cormorant Garamond', serif;
-    letter-spacing: 3px;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
 
-    color: var(--tinta);
+    border-bottom: 1px solid rgba(255,255,255,0.5);
+    padding-bottom: 3px;
 
-    border: 1px solid rgba(255,255,255,.3);
-
-    padding: 12px 30px;
-
-    transition: .4s;
+    transition: 0.3s;
 }
 
-a:hover{
-    background: rgba(255,255,255,.1);
-    transform: scale(1.05);
+.mail-footer:hover {
+    opacity: 0.7;
 }
 
 /* 🦋 MARIPOSAS */

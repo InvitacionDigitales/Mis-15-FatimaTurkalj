@@ -6,23 +6,50 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector(".izquierda").classList.add("abrir");
     document.querySelector(".derecha").classList.add("abrir");
 
-    // 🎵 música
+    // 🎵 volumen
     audio.volume = 0.3;
 
     // intentar autoplay
-    audio.play().catch(() => {
+    const intentarAudio = async () => {
 
-        // si el navegador bloquea, esperar un click
-        const iniciarAudio = () => {
-            audio.play();
+        try {
 
-            document.removeEventListener("click", iniciarAudio);
-            document.removeEventListener("touchstart", iniciarAudio);
-        };
+            // reproducir muteado
+            audio.muted = true;
 
-        document.addEventListener("click", iniciarAudio);
-        document.addEventListener("touchstart", iniciarAudio);
-    });
+            await audio.play();
+
+            // sacar mute después
+            setTimeout(() => {
+
+                audio.muted = false;
+
+            }, 1000);
+
+        } catch (error) {
+
+            console.log("Autoplay bloqueado");
+
+        }
+
+    };
+
+    intentarAudio();
+
+    // si el navegador bloquea, al primer toque arranca
+    const activarAudio = () => {
+
+        audio.muted = false;
+
+        audio.play();
+
+        document.removeEventListener("click", activarAudio);
+        document.removeEventListener("touchstart", activarAudio);
+
+    };
+
+    document.addEventListener("click", activarAudio);
+    document.addEventListener("touchstart", activarAudio);
 
     // ⏳ CONTADOR
     const fechaFiesta = new Date('July 18, 2026 21:00:00').getTime();
@@ -46,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }, 1000);
 
-    // 📜 SCROLL ANIMACIÓN
+    // 📜 animaciones scroll
     const elementos = document.querySelectorAll('.fade-up');
 
     const mostrarElementos = () => {
@@ -56,7 +83,9 @@ document.addEventListener("DOMContentLoaded", () => {
             const top = el.getBoundingClientRect().top;
 
             if (top < window.innerHeight - 80) {
+
                 el.classList.add('show');
+
             }
 
         });
@@ -67,36 +96,36 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.addEventListener('scroll', mostrarElementos);
 
-    // 🦋 MARIPOSAS
+    // 🦋 mariposas
     const container = document.querySelector(".butterflies");
 
     function crearMariposa() {
 
         const butterfly = document.createElement("div");
+
         butterfly.classList.add("butterfly");
 
-        // posición aleatoria
         butterfly.style.left = Math.random() * 100 + "vw";
 
-        // tamaño aleatorio
         const size = Math.random() * 30 + 30;
 
         butterfly.style.width = size + "px";
         butterfly.style.height = size + "px";
 
-        // duración aleatoria
         const duration = Math.random() * 8 + 10;
+
         butterfly.style.animationDuration = duration + "s";
 
         container.appendChild(butterfly);
 
-        // eliminar después
         setTimeout(() => {
+
             butterfly.remove();
+
         }, duration * 1000);
+
     }
 
-    // 🦋 MUCHAS MARIPOSAS
     setInterval(() => {
 
         crearMariposa();
