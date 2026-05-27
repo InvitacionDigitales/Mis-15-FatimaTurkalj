@@ -9,47 +9,33 @@ document.addEventListener("DOMContentLoaded", () => {
     // 🎵 volumen
     audio.volume = 0.3;
 
-    // intentar autoplay
-    const intentarAudio = async () => {
+    // 🎵 BOTÓN MÚSICA
+    const musica = document.getElementById("musica");
+    const btnMusica = document.getElementById("btnMusica");
 
-        try {
+    if (btnMusica) {
 
-            // reproducir muteado
-            audio.muted = true;
+        btnMusica.addEventListener("click", () => {
 
-            await audio.play();
+            if (musica.paused) {
 
-            // sacar mute después
-            setTimeout(() => {
+                musica.play();
 
-                audio.muted = false;
+                btnMusica.textContent = "❚❚ Pausar música";
+                btnMusica.classList.add("activo");
 
-            }, 1000);
+            } else {
 
-        } catch (error) {
+                musica.pause();
 
-            console.log("Autoplay bloqueado");
+                btnMusica.textContent = "♪ Reproducir música";
+                btnMusica.classList.remove("activo");
 
-        }
+            }
 
-    };
+        });
 
-    intentarAudio();
-
-    // si el navegador bloquea, al primer toque arranca
-    const activarAudio = () => {
-
-        audio.muted = false;
-
-        audio.play();
-
-        document.removeEventListener("click", activarAudio);
-        document.removeEventListener("touchstart", activarAudio);
-
-    };
-
-    document.addEventListener("click", activarAudio);
-    document.addEventListener("touchstart", activarAudio);
+    }
 
     // ⏳ CONTADOR
     const fechaFiesta = new Date('July 18, 2026 21:00:00').getTime();

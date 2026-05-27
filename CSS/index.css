@@ -118,6 +118,45 @@ body {
     transform: translateX(100%);
 }
 
+/* 🎵 BOTÓN MÚSICA */
+
+.contenedor-musica {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-musica {
+    background: transparent;
+    border: 1px solid var(--dorado);
+    color: var(--bordo);
+
+    padding: 12px 26px;
+
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition: all 0.35s ease;
+
+    position: relative;
+    z-index: 5;
+}
+
+.btn-musica:hover {
+    background: var(--bordo);
+    color: white;
+    border-color: var(--bordo);
+    transform: scale(1.03);
+}
+
+.btn-musica.activo {
+    background: var(--bordo);
+    color: white;
+}
+
 
 /* INICIO */
 
