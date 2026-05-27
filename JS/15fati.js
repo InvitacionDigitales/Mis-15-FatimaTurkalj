@@ -19,7 +19,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (musica.paused) {
 
-                musica.play();
+                musica.play().catch(error => {
+                    console.warn("No se pudo reproducir el audio:", error);
+                });
 
                 btnMusica.textContent = "❚❚ Pausar música";
                 btnMusica.classList.add("activo");
